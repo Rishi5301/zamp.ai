@@ -1,0 +1,8 @@
+{
+  "name": "ledgerflow",
+  "private": true,
+  "scripts": {
+    "dev": ".venv/bin/python dev.py",
+    "test": ".venv/bin/python -m pytest -q"
+  }
+}

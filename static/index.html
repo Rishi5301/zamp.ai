@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#153e32">
+  <meta name="description" content="Turn vendor invoices into clear, evidence-backed AP decisions.">
+  <title>Ledgerflow · Invoice workspace</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<svg class="svg-defs" aria-hidden="true"><defs>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="m10.3 3.9-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3.1l-8-14a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4m0 4h.01"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 3h12a2 2 0 0 1 2 2v16H6a3 3 0 0 1 0-6h12M4 3v15M8 7h6m-6 4h4"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4ZM20 2v4m-2-2h4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-5 7-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2-1 2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0"/></symbol>
+</defs></svg>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#overview" aria-label="Ledgerflow home"><span class="brand-mark"><i></i><i></i><i></i></span>ledgerflow<span class="brand-dot">.</span></a>
+  <div class="workspace-switch"><span class="workspace-icon">A</span><span><b>Accounts payable</b><small>Demo workspace</small></span><span class="small-chevron">⌄</span></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav aria-label="Main navigation">
+    <a href="#overview" data-nav="overview"><svg class="icon"><use href="#i-grid"/></svg>Overview</a>
+    <a href="#invoices" data-nav="invoices"><svg class="icon"><use href="#i-file"/></svg>All invoices<span id="nav-total" class="nav-count">0</span></a>
+    <a href="#review" data-nav="review"><svg class="icon"><use href="#i-clock"/></svg>Needs review<span id="nav-review" class="nav-count amber">0</span></a>
+    <a href="#purchase-orders" data-nav="purchase-orders"><svg class="icon"><use href="#i-layers"/></svg>Purchase orders</a>
+  </nav>
+  <div class="nav-label second-label">REFERENCE</div>
+  <nav aria-label="Reference"><a href="#policy" data-nav="policy"><svg class="icon"><use href="#i-shield"/></svg>Decision policy<span class="version-small">v1.1</span></a><button data-action="guide"><svg class="icon"><use href="#i-book"/></svg>Demo guide<svg class="icon tiny"><use href="#i-arrow"/></svg></button></nav>
+  <div class="sidebar-bottom"><div class="sidebar-note"><svg class="icon"><use href="#i-shield"/></svg><b>Evidence at every step.</b><p>Every decision has a reason.<br>Every run leaves a trail.</p><a href="#policy">Explore the policy <span>↗</span></a></div><div class="environment"><span class="status-dot"></span>Synthetic demo data<span class="version-small">PS-1</span></div></div>
+</aside>
+<div class="shell">
+  <header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" data-action="menu" aria-label="Toggle navigation"><svg class="icon"><use href="#i-menu"/></svg></button><span>Workspace</span><span class="slash">/</span><b id="page-crumb">Overview</b></div><div class="topbar-right"><span class="health" id="health"><span class="status-dot"></span>Connecting</span><span class="top-divider"></span><span class="avatar" title="Accounts payable workspace">AP</span></div></header>
+  <main id="main" tabindex="-1"><div class="initial-loading">Opening your workspace…</div></main>
+  <footer><span>Ledgerflow · Invoice intelligence</span><span>Clear inputs. Considered decisions.</span></footer>
+</div>
+<input type="file" id="file-input" accept="application/pdf,.pdf" hidden>
+<dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>

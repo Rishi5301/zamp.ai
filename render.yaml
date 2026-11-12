@@ -1,0 +1,22 @@
+# This blueprint uses a paid service and persistent disk.
+# Review Render's current pricing before creating the service.
+services:
+  - type: web
+    name: ledgerflow
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: LEDGERFLOW_DATA
+        value: /var/lib/ledgerflow
+      - key: LEDGERFLOW_ACCESS_TOKEN
+        generateValue: true
+    disk:
+      name: ledgerflow-data
+      mountPath: /var/lib/ledgerflow
+      sizeGB: 1
